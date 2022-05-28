@@ -11,6 +11,4 @@ def is_narcissistic(i):
     else:
         return False
 
-
-
 is_narcissistic(1634)
