@@ -1,14 +1,15 @@
 def romanToInt(s):
-    s_set = set(s)
-    arr = [['IV', 4], ['IX', 9], ['XL', 40], ['XC', 90], ['CD', 400],
-        ['CM', 900], ['I', 1], ['V', 5], ['X', 10], ['L', 50], ['C', 100],
-        ['D', 500], ['M', 1000]]
     tot = 0
+    add = {
+        'M' : 1000, 'D' : 500, 'C' : 100, 'L' : 50, 'X' : 10, 'V' : 5, 'I' : 1
+    }
 
-    for i in len(arr):
-        x = s_set
-        for j, n in enumerate(x):
-            # if i[0] == j or i[0] == str(j + x[j+1]
-            print(j, n)
+    for i, n in enumerate(s):
+        if i < len(s) - 1 and add[n] < add[s[i + 1]]:
+            tot -= add[n]
+        else:
+            tot += add[n]
 
-romanToInt('VII')
+    return tot
+
+romanToInt('MCMXCIV')
